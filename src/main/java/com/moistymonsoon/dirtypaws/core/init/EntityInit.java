@@ -25,6 +25,6 @@ public class EntityInit {
                     .build(new ResourceLocation(DirtyPaws.MODID, "lurcher").toString()));
 
     public static final RegistryObject<EntityType<Hyena>> HYENA = ENTITIES.register("hyena",
-            () -> EntityType.Builder.of(Hyena::new, MobCategory.CREATURE).sized(0.5f, 1.2f)
+            () -> EntityType.Builder.of(Hyena::new, MobCategory.CREATURE).sized(0.8f, 1.2f)
                     .build(new ResourceLocation(DirtyPaws.MODID, "hyena").toString()));
 }

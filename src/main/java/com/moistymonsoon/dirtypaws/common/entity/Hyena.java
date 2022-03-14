@@ -13,6 +13,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.*;
 import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.monster.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.*;
@@ -28,6 +29,12 @@ import software.bernie.geckolib3.core.manager.*;
 public class Hyena extends TamableAnimal implements IAnimatable {
     private AnimationFactory factory = new AnimationFactory(this);
 
+    @Override
+    protected void defineSynchedData() {
+        super.defineSynchedData();
+        this.entityData.define(SITTING, false);
+    }
+
     private static final EntityDataAccessor<Boolean> SITTING =
             SynchedEntityData.defineId(Hyena.class, EntityDataSerializers.BOOLEAN);
 
@@ -39,25 +46,30 @@ public class Hyena extends TamableAnimal implements IAnimatable {
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
         this.goalSelector.addGoal(2, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(3, new LeapAtTargetGoal(this, 0.4F));
-        this.goalSelector.addGoal(4, new MeleeAttackGoal(this, 1.0D, true));
-        this.goalSelector.addGoal(5, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
-        this.goalSelector.addGoal(5, new LookAtPlayerGoal(this, Player.class, 8.0F));
-        this.goalSelector.addGoal(6, new WaterAvoidingRandomStrollGoal(this, 1.0D));
-        this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(3, new MeleeAttackGoal(this, 1.5D, true));
+        this.goalSelector.addGoal(4, new FollowOwnerGoal(this, 1.0D, 10.0F, 2.0F, false));
+        this.goalSelector.addGoal(4, new LookAtPlayerGoal(this, Player.class, 8.0F));
+        this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
+        this.goalSelector.addGoal(6, new RandomLookAroundGoal(this));
         this.targetSelector.addGoal(1, new OwnerHurtByTargetGoal(this));
         this.targetSelector.addGoal(2, new OwnerHurtTargetGoal(this));
         this.targetSelector.addGoal(3, (new HurtByTargetGoal(this)).setAlertOthers());
         this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Player.class, true));
-        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Animal.class, true));
-
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Pig.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Sheep.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Cow.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Rabbit.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Fox.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Skeleton.class, true));
+        this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Zombie.class, true));
     }
 
     public static AttributeSupplier.Builder createAttributes() {
         return TamableAnimal.createMobAttributes()
-                .add(Attributes.MOVEMENT_SPEED, (double)0.25F)
+                .add(Attributes.MOVEMENT_SPEED, (double)0.3F)
                 .add(Attributes.MAX_HEALTH, 16.0f)
-                .add(Attributes.ATTACK_SPEED, 2.0f)
+                .add(Attributes.ATTACK_SPEED, 1.0f)
                 .add(Attributes.ATTACK_DAMAGE, 2.0f);
     }
 
@@ -116,6 +128,7 @@ public class Hyena extends TamableAnimal implements IAnimatable {
     public AnimationFactory getFactory() {
         return factory;
     }
+
 
     //* TAMEABLE *//
     @Override
@@ -178,7 +191,7 @@ public class Hyena extends TamableAnimal implements IAnimatable {
         } else {
             getAttribute(Attributes.MAX_HEALTH).setBaseValue(16.0D);
             getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(4D);
-            getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double)0.25f);
+            getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue((double)0.3f);
         }
     }
 
@@ -190,5 +203,7 @@ public class Hyena extends TamableAnimal implements IAnimatable {
     public boolean canBeLeashed(Player player) {
         return false;
     }
+
+
 
 }
