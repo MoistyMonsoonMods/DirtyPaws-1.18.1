@@ -1,0 +1,14 @@
+modLoader="javafml"
+loaderVersion="[39,)"
+license="CC"
+
+[[mods]]
+modId="dirtypaws"
+version="1.0"
+displayName="Dirty Paws"
+logoFile="dirtypaws.png"
+credits="Thanks to @_PabloTequila on twitter for creating the models and texturing"
+authors="MoistyMonsoon"
+description='''
+A mod currently available for 1.18.1 Minecraft that adds multiple dog breeds with multiple skins to include in your animal entourage! 
+'''

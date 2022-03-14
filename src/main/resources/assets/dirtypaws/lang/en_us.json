@@ -1,0 +1,12 @@
+{
+    "item.dirtypaws.dog_collar": "Dog Collar",
+    "item.dirtypaws.bordercollie_spawn_egg": "Border Collie Spawn Egg",
+    "item.dirtypaws.lurcher_spawn_egg": "Lurcher Spawn Egg",
+    "item.dirtypaws.hyena_spawn_egg": "Hyena Spawn Egg",
+
+    "block.dirtypaws.clay_soil": "Clay Soil",
+
+    "entity.dirtypaws.border_collie": "Border Collie",
+    "entity.dirtypaws.lurcher": "Lurcher",
+    "entity.dirtypaws.hyena": "Hyena"
+}

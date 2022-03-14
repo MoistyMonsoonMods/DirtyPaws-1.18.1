@@ -1,0 +1,97 @@
+{
+	"format_version": "1.12.0",
+	"minecraft:geometry": [
+		{
+			"description": {
+				"identifier": "geometry.BorderCollie",
+				"texture_width": 64,
+				"texture_height": 64,
+				"visible_bounds_width": 3,
+				"visible_bounds_height": 2.5,
+				"visible_bounds_offset": [0, 0.75, 0]
+			},
+			"bones": [
+				{
+					"name": "bordercollie",
+					"pivot": [0, 0, -0.5]
+				},
+				{
+					"name": "mane",
+					"parent": "bordercollie",
+					"pivot": [0, 9, -0.5]
+				},
+				{
+					"name": "body",
+					"parent": "mane",
+					"pivot": [0, 9, -0.5],
+					"cubes": [
+						{"origin": [-3.5, 6, -7], "size": [7, 7, 13], "inflate": 0.001, "uv": [0, 0]},
+						{"origin": [-3.5, 3.25, -7], "size": [7, 3, 13], "inflate": -0.25, "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "tail",
+					"parent": "body",
+					"pivot": [0, 10.5, 6],
+					"cubes": [
+						{"origin": [-1.5, 9, 6], "size": [3, 3, 8], "uv": [27, 20]}
+					]
+				},
+				{
+					"name": "head",
+					"parent": "mane",
+					"pivot": [0, 12, -6],
+					"cubes": [
+						{"origin": [-3, 12, -10], "size": [6, 6, 6], "uv": [27, 0]},
+						{"origin": [-1.5, 12, -13], "size": [3, 3, 3], "uv": [24, 36]},
+						{"origin": [-6, 12, -9], "size": [3, 3, 0], "pivot": [-3, 12, -9], "rotation": [0, 42.5, 0], "uv": [27, 3]},
+						{"origin": [3, 12, -9], "size": [3, 3, 0], "pivot": [3, 12, -9], "rotation": [0, -42.5, 0], "uv": [27, 0]},
+						{"origin": [3, 13, -7], "size": [2, 3, 0], "pivot": [3, 13, -7], "rotation": [0, -42.5, 0], "uv": [9, 20]},
+						{"origin": [-5, 13, -7], "size": [2, 3, 0], "pivot": [-3, 13, -7], "rotation": [0, 42.5, 0], "uv": [9, 0]}
+					]
+				},
+				{
+					"name": "ears",
+					"parent": "head",
+					"pivot": [-2, 18, -8],
+					"cubes": [
+						{"origin": [-4, 17, -8], "size": [3, 4, 1], "uv": [36, 36]},
+						{"origin": [0.9, 17, -8], "size": [3, 4, 1], "uv": [27, 20]}
+					]
+				},
+				{
+					"name": "leg2",
+					"parent": "bordercollie",
+					"pivot": [-3, 9, -4.5],
+					"cubes": [
+						{"origin": [-4.5, 0, -6], "size": [3, 9, 3], "uv": [12, 36]}
+					]
+				},
+				{
+					"name": "leg3",
+					"parent": "bordercollie",
+					"pivot": [3, 9, -4.5],
+					"cubes": [
+						{"origin": [1.5, 0, -6], "size": [3, 9, 3], "uv": [0, 36]}
+					]
+				},
+				{
+					"name": "leg0",
+					"parent": "bordercollie",
+					"pivot": [-3, 9, 3.5],
+					"cubes": [
+						{"origin": [-4.5, 0, 2], "size": [3, 9, 3], "uv": [0, 20]}
+					]
+				},
+				{
+					"name": "leg1",
+					"parent": "bordercollie",
+					"pivot": [3, 9, 3.5],
+					"cubes": [
+						{"origin": [1.5, 0, 2], "size": [3, 9, 3], "uv": [0, 0]}
+					]
+				}
+			]
+		}
+	]
+}
